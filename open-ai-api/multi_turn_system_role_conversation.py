@@ -28,4 +28,4 @@ response = client.chat.completions.create(
 )
 
 # Extract the assistant's text response
-print(response.choices[0].message.content) # Assistant: response
+print(response.choices[0].message.content)
