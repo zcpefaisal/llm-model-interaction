@@ -13,7 +13,7 @@ collection = client.create_collection(
     name="netflix_titles",
     embedding_function=OpenAIEmbeddingFunction(
         model_name="text-embedding-3-small", 
-        api_key=os.getenv("OPENAI_API_KEY")
+        api_key=os.getenv("OPENAI_API_TOKEN")
     )
 )
 
