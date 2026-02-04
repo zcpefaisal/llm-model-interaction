@@ -25,3 +25,21 @@ pc.create_index(
 
 # Verify it was created
 print(pc.describe_index("my-first-index"))
+
+
+
+# Connect to index
+index = pc.Index("my-first-index")
+
+
+# Print the index statistics
+print(index.describe_index_stats())
+
+
+# Delete Pinecone index
+if "my-first-index" in pc.list_indexes():
+    pc.delete_index("my-first-index")
+
+
+# List indexes
+print(pc.list_indexes())
