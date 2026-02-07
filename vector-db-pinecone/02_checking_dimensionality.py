@@ -8,12 +8,12 @@ PINECONE_API_KEY = "pcsk_5xc8Tq<OPENAI_TOKEN>4mrMv9V"
 pc = Pinecone(api_key=PINECONE_API_KEY)
 
 # Optional: Clean up existing index to ensure fresh creation
-if "datacamp-index" in [i.name for i in pc.list_indexes()]:
-    pc.delete_index("datacamp-index")
+if "my-index" in [i.name for i in pc.list_indexes()]:
+    pc.delete_index("my-index")
 
 # Create Pinecone index
 pc.create_index(
-    name="datacamp-index", 
+    name="my-index", 
     dimension=1536, 
     spec=ServerlessSpec(
         cloud='aws', 

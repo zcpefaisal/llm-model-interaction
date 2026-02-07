@@ -1,7 +1,7 @@
 from pinecone import Pinecone
 import random
 
-PINECONE_API_KEY = "pcsk_5xc8Tq<OPENAI_TOKEN>4mrMv9V"
+PINECONE_API_KEY = "pcsk_<TOKEN>rMv9V"
 pc = Pinecone(api_key=PINECONE_API_KEY)
 
 # Mocking the 'vectors' list to match required structure
