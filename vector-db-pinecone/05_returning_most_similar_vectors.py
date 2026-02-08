@@ -2,6 +2,11 @@ from sentence_transformers import SentenceTransformer
 from pinecone import Pinecone, ServerlessSpec
 import time
 
+
+# ====================================== #
+#       index creation in Pinecone       #
+# ====================================== #
+
 # Initialize Pinecone connection
 pc = Pinecone(api_key="pcsk_<TOKEN>rMv9V") 
 index_name = "my-index"
@@ -23,7 +28,9 @@ if index_name not in pc.list_indexes().names():
 
 
 
-
+# =========================================== #
+#       Upsert vector in Pinecone Index       #
+# =========================================== #
 
 # Connect to the specific index
 index = pc.Index(index_name)
@@ -62,17 +69,20 @@ print("Data successfully uploaded to the index!")
 
 
 
+# =========================================== #
+#       Query/Search from Pinecone Index      #
+# =========================================== #
 
-# Perform the search
+# search text
 search_text = "How do I query a vector database?"
 
 # Convert the search string into the same vector format
 search_vector = model.encode(search_text).tolist()
 
-# Query the index for the top 2 most similar results
+# Query the index for the top 3 most similar results
 query_result = index.query(
     vector=search_vector,
-    top_k=2,              # Return the 2 best matches
+    top_k=3,              # Return the 2 best matches
     include_metadata=True # Ensure we get the text back from the metadata
 )
 
